@@ -2,6 +2,12 @@ var url = 'https://restcountries.eu/rest/v2/name/',
     countryContainer = $('#countries-container');
 
 
+$(document).keypress(function(e) {
+    if(e.which == 13) {
+        searchCountries();
+    }
+});
+
 $('#search').click(searchCountries);
 
 function searchCountries() {
@@ -13,7 +19,8 @@ function searchCountries() {
     $.ajax({
         url: url + countryName,
         method: 'GET',
-        success: showCountriesList
+        success: showCountriesList,
+        error: typeError
     });
 }
 
@@ -29,35 +36,38 @@ function showCountriesList(resp) {
             
             countryTabRow.append('<td>');
             countryTabRow.append('<td>');
+            
+            var countryFirstCellInRow = countryTabRow.find('td').eq(0);
+            var countrySecondCellInRow = countryTabRow.find('td').eq(1);
 
             switch(i) {
                 case 1:
-                    countryTabRow.find('td').eq(0).append(countryFlag.attr('src', item.flag));
-                    countryTabRow.find('td').eq(1).text(item.name.toUpperCase());
+                    countryFirstCellInRow.append(countryFlag.attr('src', item.flag));
+                    countrySecondCellInRow.text(item.name.toUpperCase());
                     break;
                 case 2:
-                    countryTabRow.find('td').eq(0).text('Capital');
-                    countryTabRow.find('td').eq(1).text(item.capital);
+                    countryFirstCellInRow.text('Capital');
+                    countrySecondCellInRow.text(item.capital);
                     break;
                 case 3:
-                    countryTabRow.find('td').eq(0).text('Land area');
-                    countryTabRow.find('td').eq(1).text(item.area + ' km').append('<sup>2</sup>');
+                    countryFirstCellInRow.text('Land area');
+                    countrySecondCellInRow.text(item.area + ' km').append('<sup>2</sup>');
                     break;
                 case 4:
-                    countryTabRow.find('td').eq(0).text('Population');
-                    countryTabRow.find('td').eq(1).text(item.population);
+                    countryFirstCellInRow.text('Population');
+                    countrySecondCellInRow.text(item.population);
                     break;
                 case 5:
-                    countryTabRow.find('td').eq(0).text('Language(s)');
-                    countryTabRow.find('td').eq(1).text(countryLang(item.languages));
+                    countryFirstCellInRow.text('Language(s)');
+                    countrySecondCellInRow.text(countryLang(item.languages));
                     break;
                 case 6:
-                    countryTabRow.find('td').eq(0).text('Currency');
-                    countryTabRow.find('td').eq(1).text(item.currencies[0].name + ' (' + item.currencies[0].symbol + ', ' + item.currencies[0].code + ')');
+                    countryFirstCellInRow.text('Currency');
+                    countrySecondCellInRow.text(item.currencies[0].name + ' (' + item.currencies[0].symbol + ', ' + item.currencies[0].code + ')');
                     break;
                 case 7:
-                    countryTabRow.find('td').eq(0).text('Region');
-                    countryTabRow.find('td').eq(1).text(item.region);
+                    countryFirstCellInRow.text('Region');
+                    countrySecondCellInRow.text(item.region);
             }
             
             countryTab.append(countryTabRow);
@@ -75,4 +85,10 @@ function countryLang(langList) {
         lang += ', ' + langList[i].name;
     }
     return lang;
+}
+    
+function typeError() {
+    countryContainer.empty();
+    var errorInfo = $('<h2>').text('No data avaliable! Please check your typing!').css({'color': 'red', 'text-align': 'center', 'text-transform': 'none'});
+    countryContainer.append(errorInfo);
 }
