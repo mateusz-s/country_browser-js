@@ -1,25 +1,41 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Lato', 'Arial', sans-serif;
     background-color: #CCCCCC;
+    background-image: url('../img/globe.jpeg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
 }
 
 .container {
     max-width: 700px;
     width: 100%;
+    min-height: 100vh;
     padding: 50px;
     margin: 0 auto;
-    background-color: rgba(255, 255, 255, .5);
+    background-color: rgba(255, 255, 255, .8);
 }
 
 h1 {
     margin-top: 0;
+    text-align: center;
     text-transform: uppercase;
+}
+
+input, button {
+    outline: none;
 }
 
 table {
     width: 100%;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
+    border-bottom: 2px solid #446655;
     border-collapse: collapse;
 }
 
@@ -27,24 +43,88 @@ table:last-child {
     margin-bottom: 0;
 }
 
-th, td {
-    width: 50%;
-    padding: 5px;
-    border: 1px solid;
+td {
+    padding: 10px;
 }
 
-table tr:nth-child(1) td:nth-child(2) {
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
+td:first-child {
+    width: 40%;
 }
 
-table tr:nth-child(n + 2) td:nth-child(1) {
+td:last-child {
+    width: 60%;
+}
+
+tr:first-child {
+    background-color: #446655;
+}
+
+tr:nth-child(2n + 2) {
+    background-color: #FFFFFF;
+}
+tr:nth-child(2n + 3) {
+    background-color: #AABB99;
+}
+
+tr:nth-child(1) td:nth-child(2) {
+    font-size: 26px;
     font-weight: bold;
+    color: #FFFFFF
+}
+
+tr:nth-child(n + 2) td:nth-child(1) {
+    font-weight: bold;
+}
+
+tr:hover:nth-child(n + 2) {
+    background-color: #446655;
+}
+
+tr:hover:nth-child(n + 2) td {
+    color: #FFFFFF;
 }
 
 .country-flag {
     display: block;
     max-width: 50%;
     margin: 0 auto;
+}
+
+.country-form {
+    font-size: 0;
+    text-align: center;
+}
+
+.country-form #country-name {
+    height: 50px;
+    width: 60%;
+    padding: 5px 10px;
+    border: 2px solid #446655;
+    border-right: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.country-form #search {
+    height: 50px;
+    width: 15%;
+    border: 2px solid #446655;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    color: #FFFFFF;
+    background-color: #446655;
+    vertical-align: bottom;
+}
+
+.country-form #search i.fa {
+    font-size: 20px;
+}
+
+#countries-container {
+    margin-top: 80px;
+}
+
+#countries-container h2 {
+    margin-bottom: 50px;
+    text-transform: capitalize;
 }
