@@ -89,6 +89,6 @@ function countryLang(langList) {
     
 function typeError() {
     countryContainer.empty();
-    var errorInfo = $('<h2>').text('No data avaliable! Please check your typing!').css({'color': 'red', 'text-align': 'center', 'text-transform': 'none'});
+    var errorInfo = $('<h2>').text('No data avaliable! Please check your typing!').css({'color': 'red', 'text-align': 'center', 'text-transform': 'none', 'text-shadow': '0 0 10px #FFFFFF'});
     countryContainer.append(errorInfo);
 }
