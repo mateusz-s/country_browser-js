@@ -37,6 +37,8 @@ table {
     margin-bottom: 50px;
     border-bottom: 2px solid #446655;
     border-collapse: collapse;
+    animation-name: show-table;
+    animation-duration: 2s;
 }
 
 table:last-child {
@@ -45,6 +47,7 @@ table:last-child {
 
 td {
     padding: 10px;
+    transition: all .3s;
 }
 
 td:first-child {
@@ -53,6 +56,10 @@ td:first-child {
 
 td:last-child {
     width: 60%;
+}
+
+tr {
+    transition: all .3s;
 }
 
 tr:first-child {
@@ -87,7 +94,8 @@ tr:hover:nth-child(n + 2) td {
 .country-flag {
     display: block;
     max-width: 50%;
-    margin: 0 auto;
+    margin: 5px auto;
+    box-shadow: 2px 3px 4px 0 #CCCCCC;
 }
 
 .country-form {
@@ -114,6 +122,7 @@ tr:hover:nth-child(n + 2) td {
     color: #FFFFFF;
     background-color: #446655;
     vertical-align: bottom;
+    cursor: pointer;
 }
 
 .country-form #search i.fa {
@@ -127,4 +136,16 @@ tr:hover:nth-child(n + 2) td {
 #countries-container h2 {
     margin-bottom: 50px;
     text-transform: capitalize;
+    text-shadow: 0 0 10px #FFFFFF;
+    animation-name: show-table;
+    animation-duration: 2s;
+}
+
+.main-heading {
+    text-shadow: 0 0 10px #AABB99;
+}
+
+@keyframes show-table {
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
