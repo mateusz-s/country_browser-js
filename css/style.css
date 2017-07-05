@@ -17,7 +17,7 @@ body {
     max-width: 700px;
     width: 100%;
     min-height: 100vh;
-    padding: 50px 30px;
+    padding: 30px;
     margin: 0 auto;
     background-color: rgba(255, 255, 255, .8);
 }
@@ -142,7 +142,11 @@ tr:hover:nth-child(n + 2) td {
 }
 
 .main-heading {
-    text-shadow: 0 0 10px #AABB99;
+    padding: 10px 0;
+    border-radius: 5px;
+    margin-bottom: 80px;
+    color: #FFFFFF;
+    background-color: #446655;
 }
 
 @keyframes show-table {
