@@ -10,6 +10,22 @@ $(document).keypress(function(e) {
 
 $('#search').click(searchCountries);
 
+//Scroll to top button - Start
+$(window).scroll(function () {
+    if ($(this).scrollTop() > 500) {
+        $('.scrollUp').fadeIn();
+    } else {
+        $('.scrollUp').fadeOut();
+    }
+});
+	
+$('.scrollUp').click(function(){
+    $('html, body').animate({scrollTop : 0}, 1000);
+    return false;
+});
+
+//Scroll to top button - End
+
 function searchCountries() {
     var countryName = $('#country-name').val();
     

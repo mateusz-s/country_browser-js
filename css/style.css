@@ -5,21 +5,8 @@
 body {
     margin: 0;
     font-family: 'Lato', 'Arial', sans-serif;
-    background-color: #CCCCCC;
-    background-image: url('../img/globe.jpeg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
+    background: #CCCCCC url('../img/globe.jpeg') no-repeat center fixed;
     background-size: cover;
-}
-
-.container {
-    max-width: 700px;
-    width: 100%;
-    min-height: 100vh;
-    padding: 30px;
-    margin: 0 auto;
-    background-color: rgba(255, 255, 255, .8);
 }
 
 h1 {
@@ -28,8 +15,18 @@ h1 {
     text-transform: uppercase;
 }
 
-input, button {
-    outline: none;
+button {
+    padding: 0;
+    border: none;
+    font-size: 20px;
+    color: #FFFFFF;
+    background-color: #446655;
+    cursor: pointer;
+    transition: background-color .3s;
+}
+
+button:hover {
+    background-color: #557766;
 }
 
 table {
@@ -91,6 +88,26 @@ tr:hover:nth-child(n + 2) td {
     color: #FFFFFF;
 }
 
+.container {
+    width: 100%;
+    max-width: 800px;
+    min-height: 100vh;
+    padding: 30px 70px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, .8);
+}
+
+.scrollUp {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    display: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 3px;
+    z-index: 100;
+}
+
 .country-flag {
     display: block;
     max-width: 50%;
@@ -114,19 +131,12 @@ tr:hover:nth-child(n + 2) td {
 }
 
 .country-form #search {
-    height: 50px;
     width: 15%;
+    height: 50px;
     border: 2px solid #446655;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
-    color: #FFFFFF;
-    background-color: #446655;
     vertical-align: bottom;
-    cursor: pointer;
-}
-
-.country-form #search i.fa {
-    font-size: 20px;
 }
 
 #countries-container {
