@@ -5,7 +5,7 @@
 body {
     margin: 0;
     font-family: 'Lato', 'Arial', sans-serif;
-    background: #CCCCCC url('../img/globe.jpeg') no-repeat center fixed;
+    background: #CCCCCC url('../img/globe.jpeg') no-repeat fixed center;
     background-size: cover;
 }
 
@@ -13,6 +13,10 @@ h1 {
     margin-top: 0;
     text-align: center;
     text-transform: uppercase;
+}
+
+input, button {
+    outline-color: #AABB99;
 }
 
 button {
@@ -31,28 +35,14 @@ button:hover {
 
 table {
     width: 100%;
-    margin-bottom: 50px;
+    margin: 0 auto 50px;
     border-bottom: 2px solid #446655;
     border-collapse: collapse;
-    animation-name: show-table;
-    animation-duration: 2s;
+    animation: show-table 2s;
 }
 
 table:last-child {
     margin-bottom: 0;
-}
-
-td {
-    padding: 10px;
-    transition: all .3s;
-}
-
-td:first-child {
-    width: 40%;
-}
-
-td:last-child {
-    width: 60%;
 }
 
 tr {
@@ -71,9 +61,15 @@ tr:nth-child(2n + 3) {
 }
 
 tr:nth-child(1) td:nth-child(2) {
-    font-size: 26px;
+    font-size: 18px;
     font-weight: bold;
     color: #FFFFFF
+}
+
+@media screen and (min-width: 768px) {
+    tr:nth-child(1) td:nth-child(2) {
+        font-size: 24px;
+    }
 }
 
 tr:nth-child(n + 2) td:nth-child(1) {
@@ -88,24 +84,53 @@ tr:hover:nth-child(n + 2) td {
     color: #FFFFFF;
 }
 
+td {
+    padding: 10px 7px;
+    transition: all .3s;
+}
+
+td:first-child {
+    width: 35%;
+}
+
+td:last-child {
+    width: 65%;
+}
+
 .container {
     width: 100%;
-    max-width: 800px;
+    max-width: 700px;
     min-height: 100vh;
-    padding: 30px 70px;
+    padding: 30px 40px;
     margin: 0 auto;
     background-color: rgba(255, 255, 255, .8);
 }
 
 .scrollUp {
     position: fixed;
-    right: 20px;
-    bottom: 20px;
+    right: 0;
+    bottom: 100px;
     display: none;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     border-radius: 3px;
+    font-size: 16px;
     z-index: 100;
+}
+
+@media screen and (min-width: 768px) {
+    .scrollUp {
+        bottom: 50px;
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .scrollUp {
+        right: 50px;
+    }
 }
 
 .country-flag {
