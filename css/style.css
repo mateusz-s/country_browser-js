@@ -5,7 +5,7 @@
 body {
     margin: 0;
     font-family: 'Lato', 'Arial', sans-serif;
-    background: #CCCCCC url('../img/globe.jpeg') no-repeat fixed center;
+    background: #CCCCCC url('../img/globe.jpg') no-repeat fixed center;
     background-size: cover;
 }
 
