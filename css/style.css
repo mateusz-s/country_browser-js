@@ -39,7 +39,7 @@ table {
     margin: 0 auto 50px;
     border-bottom: 2px solid #446655;
     border-collapse: collapse;
-    animation: show-table 2s;
+    animation: show-table 1s;
 }
 
 table:last-child {
