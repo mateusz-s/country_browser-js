@@ -1,43 +1,14 @@
 var url = 'https://restcountries.eu/rest/v2/name/',
-    countryContainer = $('#countries-container');
+    countryContainer = $('#countries-container'),
+	countryInput = $('#country-name'),
+	countrySearchBtn = $('#search');
 
-
-$(document).keypress(function(e) {
-    if(e.which == 13) {
-        searchCountries();
+function countryLang(langList) {
+    var lang = langList[0].name;
+    for (var i = 1; i < langList.length; i++) {
+        lang += ', ' + langList[i].name;
     }
-});
-
-$('#search').click(searchCountries);
-
-//Scroll to top button - Start
-$(window).scroll(function () {
-    if ($(this).scrollTop() > 500) {
-        $('.scrollUp').fadeIn();
-    } else {
-        $('.scrollUp').fadeOut();
-    }
-});
-	
-$('.scrollUp').click(function(){
-    $('html, body').animate({scrollTop : 0}, 1000);
-    return false;
-});
-
-//Scroll to top button - End
-
-function searchCountries() {
-    var countryName = $('#country-name').val();
-    
-    if (!countryName.length) {
-        countryName = 'Poland';
-    }
-    $.ajax({
-        url: url + countryName,
-        method: 'GET',
-        success: showCountriesList,
-        error: typeError
-    });
+    return lang;
 }
 
 function showCountriesList(resp) {
@@ -95,16 +66,47 @@ function showCountriesList(resp) {
     countryContainer.prepend('<h2>Countries list</h2>');
 }
 
-function countryLang(langList) {
-    var lang = langList[0].name;
-    for (var i = 1; i < langList.length; i++) {
-        lang += ', ' + langList[i].name;
-    }
-    return lang;
-}
-    
 function typeError() {
     countryContainer.empty();
+	
     var errorInfo = $('<h2>').text('No data avaliable! Please check your typing!').css({'color': 'red', 'text-align': 'center', 'text-transform': 'none', 'text-shadow': '0 0 10px #FFFFFF'});
+	
     countryContainer.append(errorInfo);
 }
+
+function searchCountries() {
+    var countryName = countryInput.val();
+	countryInput.val('');
+    
+    if (!countryName.length) {
+        countryName = 'Poland';
+    }
+    $.ajax({
+        url: url + countryName,
+        method: 'GET',
+        success: showCountriesList,
+        error: typeError
+    });
+}
+
+$(document).keypress(function (e) {
+    if (e.which == 13) {
+        searchCountries();
+    }
+});
+
+// Scroll to top button - Start
+$(window).scroll(function () {
+    if ($(this).scrollTop() > 500) {
+        $('.scrollUp').fadeIn();
+    } else {
+        $('.scrollUp').fadeOut();
+    }
+});
+	
+$('.scrollUp').click(function () {
+    $('**html, body**').animate({scrollTop : 0}, 1000);
+    return false;
+}); // Scroll to top button - End
+
+countrySearchBtn.click(searchCountries);
